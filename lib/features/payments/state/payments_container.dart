@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../models/payment.dart';
+import '../screens/about_developer_screen.dart';
 import '../screens/payments_list_screen.dart';
 import '../screens/payment_form_screen.dart';
 
@@ -106,7 +107,14 @@ class _PaymentsContainerState extends State<PaymentsContainer> {
           IconButton(
             icon: const Icon(Icons.info_outline),
             tooltip: 'О разработчике',
-            onPressed: () => context.pushReplacement('/about'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const AboutDeveloperScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),

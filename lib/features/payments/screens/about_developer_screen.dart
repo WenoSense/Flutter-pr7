@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../state/payments_container.dart';
+
 class AboutDeveloperScreen extends StatelessWidget {
   const AboutDeveloperScreen({super.key});
 
@@ -12,7 +14,12 @@ class AboutDeveloperScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           tooltip: 'На главный экран',
-          onPressed: () => context.go('/'),
+          onPressed: () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const PaymentsContainer(),
+            ),
+          ),
         ),
       ),
       body: Padding(
