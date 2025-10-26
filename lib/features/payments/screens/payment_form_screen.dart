@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../../../data/payment_repository.dart';
 import '../models/payment.dart';
@@ -60,7 +61,7 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           tooltip: 'Назад',
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
         ),
       ),
       body: Padding(
@@ -106,11 +107,7 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
             ElevatedButton(
               onPressed: () {
                 _submit();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => const PaymentsListScreen()),
-                );
+                context.go('/');
               },
               style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(48)),
               child: const Text('Сохранить'),
