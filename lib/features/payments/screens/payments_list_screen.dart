@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../data/payment_repository.dart';
 import '../models/payment.dart';
 import '../widgets/payment_card.dart';
@@ -82,28 +83,17 @@ class _PaymentsListScreenState extends State<PaymentsListScreen> {
           IconButton(
             icon: const Icon(Icons.star_border),
             tooltip: 'Избранное',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const FavoritesScreen()),
-              );
-            },
+            onPressed: () => context.push('/favorites'),
           ),
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Настройки',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const SettingsScreen()),
-            ),
+            onPressed: () => context.push('/settings'),
           ),
           IconButton(
             icon: const Icon(Icons.info_outline),
             tooltip: 'О разработчике',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const AboutDeveloperScreen()),
-            ),
+            onPressed: () => context.push('/about'),
           ),
         ],
       ),
@@ -172,12 +162,7 @@ class _PaymentsListScreenState extends State<PaymentsListScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         tooltip: 'Добавить платёж',
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const PaymentFormScreen()),
-          );
-        },
+        onPressed: () => context.push('/add'),
       ),
     );
   }
