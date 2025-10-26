@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../data/payment_repository.dart';
 import '../models/payment.dart';
 import '../widgets/payment_card.dart';
-
+import 'payment_form_screen.dart';
+import 'favorites_screen.dart';
+import 'settings_screen.dart';
+import 'about_developer_screen.dart';
 
 enum SortOption { nearestDate, category, amount }
 
@@ -75,6 +78,34 @@ class _PaymentsListScreenState extends State<PaymentsListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Регулярные платежи'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.star_border),
+            tooltip: 'Избранное',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const FavoritesScreen()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: 'Настройки',
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const SettingsScreen()),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'О разработчике',
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const AboutDeveloperScreen()),
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -137,6 +168,16 @@ class _PaymentsListScreenState extends State<PaymentsListScreen> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        tooltip: 'Добавить платёж',
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const PaymentFormScreen()),
+          );
+        },
       ),
     );
   }
