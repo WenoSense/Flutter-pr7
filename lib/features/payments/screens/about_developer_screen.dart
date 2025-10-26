@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AboutDeveloperScreen extends StatelessWidget {
   const AboutDeveloperScreen({super.key});
@@ -11,7 +12,7 @@ class AboutDeveloperScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           tooltip: 'На главный экран',
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
         ),
       ),
       body: Padding(
