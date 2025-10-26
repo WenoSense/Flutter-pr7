@@ -8,6 +8,11 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Настройки'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          tooltip: 'На главный экран',
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: const Center(
         child: Text(
