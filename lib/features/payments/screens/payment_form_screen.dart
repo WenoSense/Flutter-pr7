@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../data/payment_repository.dart';
 import '../models/payment.dart';
+import 'payments_list_screen.dart';
 
 class PaymentFormScreen extends StatefulWidget {
   const PaymentFormScreen({super.key});
@@ -56,6 +57,11 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Добавить платёж'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          tooltip: 'Назад',
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -100,6 +106,11 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
             ElevatedButton(
               onPressed: () {
                 _submit();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const PaymentsListScreen()),
+                );
               },
               style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(48)),
               child: const Text('Сохранить'),
