@@ -11,6 +11,11 @@ class FavoritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Избранные платежи'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          tooltip: 'Назад',
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: favorites.isEmpty
           ? const Center(child: Text('Нет избранных платежей'))
