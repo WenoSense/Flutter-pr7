@@ -8,6 +8,11 @@ class AboutDeveloperScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('О разработчике'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          tooltip: 'На главный экран',
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
