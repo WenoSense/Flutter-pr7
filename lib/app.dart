@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'features/payments/screens/payments_list_screen.dart';
+import 'router.dart';
 import 'shared/app_theme.dart';
 
 class RegularPaymentsApp extends StatelessWidget {
@@ -7,11 +7,11 @@ class RegularPaymentsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Регулярные платежи',
       theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
-      home: const PaymentsListScreen(),
+      routerConfig: appRouter,
     );
   }
 }
